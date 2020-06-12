@@ -30,6 +30,7 @@ type matcher struct {
 	*repo.StoredData
 }
 
+// Matches check if given struct matches with wrapped struct.
 func (m *matcher) Matches(x interface{}) bool {
 	d1 := m.StoredData
 	d2, ok := x.(*repo.StoredData)
@@ -40,6 +41,7 @@ func (m *matcher) Matches(x interface{}) bool {
 	return d1.Data == d2.Data && d1.ID == d2.ID
 }
 
+// String returns wanted value representation in string.
 func (m *matcher) String() string {
 	return fmt.Sprintf("%v", m.StoredData)
 }
